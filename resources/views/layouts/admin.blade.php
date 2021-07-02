@@ -85,6 +85,13 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{route('pago.index')}}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            Pagos
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
                     @endauth
                 </ul>
 

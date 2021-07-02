@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\PagosController;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -50,7 +51,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::post('departamento/{departamento}/agrega-cliente', [DepartamentoController::class, 'agregaCliente'])->name('departamento.agrega-cliente');
-
 Route::resource('departamento', DepartamentoController::class)->middleware(['auth', 'verified']);
 
 Route::resource('cliente', ClienteController::class)->middleware(['auth', 'verified']);
+
+Route::post('pago/{cliente}/agregar', [PagosController::class, 'agregar'])->name('pago.agregar');
+Route::resource('pago', PagosController::class)->middleware(['auth', 'verified']);

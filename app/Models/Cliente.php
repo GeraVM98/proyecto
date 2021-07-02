@@ -14,4 +14,8 @@ class Cliente extends Model
     public function departamentos(){
         return $this->belongsToMany(Departamento::class);
     }
+
+    public function pagos(){
+        return $this->hasMany(Pago::class);
+    }
 }

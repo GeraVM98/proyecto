@@ -19,6 +19,7 @@
                     <th class="border w-1/6 px-4 py-2">Telefono</th>
                     <th class="border w-1/6 px-4 py-2">Nivel</th>
                     <th class="border w-1/5 px-4 py-2">Acciones</th>
+                    <th class="border w-1/5 px-4 py-2">Pagos</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,14 @@
                                         <i class="fas fa-eye"></i></a>
                                 <a href="{{route('cliente.edit', $cliente->id)}}" class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white">
                                         <i class="fas fa-edit"></i></a>
+                            </td>
+                            <td class="border px-4 py-2">
+                                <form action="{{route('pago.agregar', $cliente)}}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
+                                       Agregar
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
