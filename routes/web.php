@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartamentoController;
 use Illuminate\Auth\Events\Verified;
@@ -47,6 +48,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
 Route::post('departamento/{departamento}/agrega-cliente', [DepartamentoController::class, 'agregaCliente'])->name('departamento.agrega-cliente');
 
 Route::resource('departamento', DepartamentoController::class)->middleware(['auth', 'verified']);
+
+Route::resource('cliente', ClienteController::class)->middleware(['auth', 'verified']);

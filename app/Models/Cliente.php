@@ -9,6 +9,8 @@ class Cliente extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre', 'domicilio', 'correo', 'telefono', 'nivel_id'];
+
     public function departamentos(){
         return $this->belongsToMany(Departamento::class);
     }

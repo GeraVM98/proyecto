@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class DepartamentoController extends Controller
 {
@@ -89,6 +90,8 @@ class DepartamentoController extends Controller
      */
     public function update(Request $request, Departamento $departamento)
     {
+        Gate::authorize('updateDepartamento', $departamento);
+
         $request->validate([
             'nombre' => 'required|string|max:255',
             'encargado' => 'required|string|max:255',
